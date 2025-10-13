@@ -65,7 +65,7 @@ $config["QUERY_PUT_CHARACTER_FOR_SALE_2"] = "INSERT INTO icp_shop_chars (owner_i
 $config["QUERY_ITEMS_DETAILS_1"] = "SELECT i.*, (i.item_id) AS object_id, (i.item_type) AS item_id, (i.count) AS count, (i.enchant) AS enchant_level, t.itemGrade FROM items AS i, icp_icons_interlude AS t WHERE i.item_type = t.itemId AND i.item_id = ? AND i.owner_id = ? AND (SELECT online FROM characters WHERE charId = i.owner_id) = '0' AND (SELECT account_name FROM characters WHERE charId = i.owner_id) = ?";
 $config["QUERY_ITEMS_DETAILS_2"] = "SELECT * FROM items WHERE item_id = ? AND owner_id = ? AND loc = ?";
 $config["QUERY_ITEMS_MAX_ID"] = "SELECT MAX(item_id) AS max FROM items";
-$config["QUERY_ITEMS_INSERT"] = "INSERT INTO items (owner_id, item_id, item_type, count, enchant, loc, slot) VALUES (?,?,?,?,?,?,'0')";
+$config["QUERY_ITEMS_INSERT"] = "INSERT INTO items (owner_id, item_id, count, enchant, loc, slot) VALUES (?,?,?,?,?,?,'0')";
 $config["QUERY_ITEMS_UPDATE"] = "UPDATE items SET count = (count + ?), enchant = ? WHERE item_id = ? AND owner_id = ? AND loc = ?";
 $config["QUERY_ITEMS_DELETE"] = "DELETE FROM items WHERE item_id = ?";
 $config["QUERY_UNLOCK_CHARACTER_1"] = "SELECT char_name, karma, online, x, y FROM characters WHERE account_name = ? AND charId = ?";

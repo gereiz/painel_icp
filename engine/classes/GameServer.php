@@ -1109,7 +1109,7 @@ namespace ICPNetworks {
 								$colNum++;
 							}
 						}
-						$inserting = $this->execute(str_replace("{CUSTOM_VALS}",$colVal,str_replace("{CUSTOM_COLS}",$column,$this->QUERY_ITEMS_INSERT)),[$ownerid,$new_id,$itemid,$count,$enchant,$loc]);
+						$inserting = $this->execute(str_replace("{CUSTOM_VALS}",$colVal,str_replace("{CUSTOM_COLS}",$column,$this->QUERY_ITEMS_INSERT)),[$ownerid,$itemid,$count,$enchant,$loc]);
 					}
 					return true;
 				}else{
