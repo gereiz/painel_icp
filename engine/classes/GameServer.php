@@ -2043,11 +2043,11 @@ namespace ICPNetworks {
 		
 		private function createThumb($imgPath,$imgName,$thumbPath,$thumbName,$thumbWidth,$ext){
 			switch($ext){
-				case "gif" : $source = imagecreatefromgif($imgPath.$imgName); break;
-				case "jpeg" : $source = imagecreatefromjpeg($imgPath.$imgName); break;
-				case "png" : $source = imagecreatefrompng($imgPath.$imgName); break;
-				case "bmp" : $source = imagecreatefrombmp($imgPath.$imgName); break;
-				default: $source = imagecreatefromjpeg($imgPath.$imgName); break;
+				case "gif" : $source = \imagecreatefromgif($imgPath.$imgName); break;
+				case "jpeg" : $source = \imagecreatefromjpeg($imgPath.$imgName); break;
+				case "png" : $source = \imagecreatefrompng($imgPath.$imgName); break;
+				case "bmp" : $source = \imagecreatefrombmp($imgPath.$imgName); break;
+				default: $source = \imagecreatefromjpeg($imgPath.$imgName); break;
 			}
 			$ratio = $thumbWidth / imagesx($source);
 			$height = imagesy($source) * $ratio;
