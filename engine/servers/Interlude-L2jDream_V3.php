@@ -62,11 +62,11 @@ $config["QUERY_UPDATE_ITEM_STATS_ITEM_ATTRIBUTES"] = "UPDATE item_attributes SET
 $config["QUERY_INSERT_ITEM_STATS_ITEM_ATTRIBUTES"] = "INSERT INTO item_attributes (object_id,augmentation_id,augmentation_skill_id,augmentation_skill_level,fire,water,wind,earth,holy,unholy) VALUES (?,'-1',IF(? > '-1','-1','-1'),IF(? > '-1','-1','-1'),'0','0','0','0','0','0')";
 $config["QUERY_PUT_CHARACTER_FOR_SALE_1"] = "UPDATE characters SET account_name = ? WHERE charId = ? AND account_name = ?";
 $config["QUERY_PUT_CHARACTER_FOR_SALE_2"] = "INSERT INTO icp_shop_chars (owner_id, account, has_account, type, price) VALUES (?,?,?,?,?)";
-$config["QUERY_ITEMS_DETAILS_1"] = "SELECT i.*, (i.item_id) AS object_id, (i.item_type) AS item_id, (i.amount) AS count, (i.enchant) AS enchant_level, t.itemGrade FROM items AS i, icp_icons_interlude AS t WHERE i.item_type = t.itemId AND i.item_id = ? AND i.owner_id = ? AND (SELECT online FROM characters WHERE charId = i.owner_id) = '0' AND (SELECT account_name FROM characters WHERE charId = i.owner_id) = ?";
+$config["QUERY_ITEMS_DETAILS_1"] = "SELECT i.*, (i.item_id) AS object_id, (i.item_type) AS item_id, (i.count) AS count, (i.enchant) AS enchant_level, t.itemGrade FROM items AS i, icp_icons_interlude AS t WHERE i.item_type = t.itemId AND i.item_id = ? AND i.owner_id = ? AND (SELECT online FROM characters WHERE charId = i.owner_id) = '0' AND (SELECT account_name FROM characters WHERE charId = i.owner_id) = ?";
 $config["QUERY_ITEMS_DETAILS_2"] = "SELECT * FROM items WHERE item_id = ? AND owner_id = ? AND loc = ?";
 $config["QUERY_ITEMS_MAX_ID"] = "SELECT MAX(item_id) AS max FROM items";
-$config["QUERY_ITEMS_INSERT"] = "INSERT INTO items (owner_id, object_id, item_id, count, enchant_level, loc, loc_data, custom_type1, custom_type2, mana_left, time_of_use)  VALUES (?, 0, ?, ?, 0, 'INVENTORY', 0, 0, 0, -1, ?)";
-$config["QUERY_ITEMS_UPDATE"] = "UPDATE items SET amount = (amount + ?), enchant = ? WHERE item_id = ? AND owner_id = ? AND loc = ?";
+$config["QUERY_ITEMS_INSERT"] = "INSERT INTO items (owner_id, item_id, item_type, count, enchant, loc, slot) VALUES (?,?,?,?,?,?,'0')";
+$config["QUERY_ITEMS_UPDATE"] = "UPDATE items SET count = (count + ?), enchant = ? WHERE item_id = ? AND owner_id = ? AND loc = ?";
 $config["QUERY_ITEMS_DELETE"] = "DELETE FROM items WHERE item_id = ?";
 $config["QUERY_UNLOCK_CHARACTER_1"] = "SELECT char_name, karma, online, x, y FROM characters WHERE account_name = ? AND charId = ?";
 $config["QUERY_UNLOCK_CHARACTER_2"] = "UPDATE characters SET x=?, y=?, z=?, curHp = maxHP WHERE account_name = ? AND charId = ?";
